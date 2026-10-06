@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Land Connect · land record integration</title>
+  <meta name="description" content="Integrates cadastral maps, revenue records, municipal layers, GNSS surveys and AI building footprints into one harmonised, confidence-scored land record.">
+  <meta name="theme-color" content="#0f5e74">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230f5e74'/><path d='M7 22l5.5-11 5 7 3-4 4.5 8z' fill='%23fff'/></svg>">
+  <link rel="stylesheet" href="/static/vendor/leaflet.css">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<a class="skip" href="#tab-body">Skip to results</a>
+<main class="gm">
+  <section class="mapwrap" aria-label="Map">
+    <div id="map"></div>
+
+    <!-- side sheet: tabs and their content (slides in from the left, like a place list) -->
+    <aside class="panel side" id="side" aria-label="Results">
+      <nav class="tabs" id="tabs">
+        <button data-tab="overview" class="active">Overview</button>
+        <button data-tab="review">Review <span class="count" id="n-review">0</span></button>
+        <button data-tab="data">Data</button>
+        <button data-tab="changes">Changes</button>
+        <button data-tab="accuracy">Accuracy</button>
+        <button data-tab="requests">Requests <span class="count" id="n-requests">0</span></button>
+        <button data-tab="audit">Audit</button>
+        <button data-tab="admin" id="tab-admin" class="hidden">Admin</button>
+        <button data-tab="profile" id="tab-profile" class="hidden">Profile</button>
+        <button data-tab="results" id="tab-results" class="hidden">Results <span class="count" id="n-results">0</span></button>
+      </nav>
+      <section class="tab-body" id="tab-body" tabindex="-1">
+        <div class="skel big"></div><div class="skel"></div><div class="skel" style="width:70%"></div><div class="skel" style="width:85%"></div>
+      </section>
+    </aside>
+    <!-- plot details: a sheet of its own on top of the list, like a place card -->
+    <div class="inspector side hidden" id="inspector"></div>
+    <button class="gm-handle" id="btn-collapse" title="Collapse side panel" aria-label="Collapse side panel">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 6l-6 6 6 6"/></svg></button>
+
+    <!-- search, top left -->
+    <div class="gm-search">
+      <button class="gm-ib" id="btn-menu" type="button" aria-label="Menu" title="Menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <form class="ask" id="ask" role="search">
+        <input id="ask-input" type="search" autocomplete="off" placeholder="Search Land Connect" aria-label="Search plots, records, owners, places or ask a question">
+        <span class="engine" id="engine" title="Query engine"></span>
+        <button class="gm-ib" type="submit" aria-label="Search" title="Search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></button>
+        <div class="omni hidden" id="omni" role="listbox" aria-label="Suggestions"></div>
+      </form>
+    </div>
+    <!-- quick filters, like place categories -->
+    <div class="gm-chips" id="gm-chips">
+      <button class="map-ctl newplot gm-chip hidden" id="btn-newplot" title="Draw the boundary of a plot that is not on the map yet (survey staff and admins)">+ New plot</button>
+      <div id="chips" class="gm-chiprow"></div>
+    </div>
+
+    <!-- top right: area and account -->
+    <div class="gm-topright">
+      <select class="ws-select ws-pill" id="ws" aria-label="Area"></select>
+      <button class="gm-ib gm-round" id="btn-help" title="Keyboard shortcuts (?)" aria-label="Keyboard shortcuts">?</button>
+      <div class="user" id="user-chip"></div>
+    </div>
+    <div class="acct hidden" id="acct" role="menu" aria-label="Account"></div>
+
+    <!-- bottom left: layers -->
+    <button class="gm-layers-btn" id="btn-layers" title="Layers (L)" aria-label="Layers"><span class="thumb" id="layers-thumb"></span><span>Layers</span></button>
+    <div class="gm-layers hidden" id="layer-ctl" aria-label="Map type and layers">
+      <div class="gm-layers-head"><b>Map type</b><button class="gm-ib" id="layers-close" aria-label="Close">×</button></div>
+      <div class="gm-types" id="basemaps"></div>
+      <div class="gm-layers-head" style="margin-top:6px"><b>Map details</b></div>
+      <div class="inner" id="layer-list"></div>
+    </div>
+
+    <!-- bottom right: locate, full screen (zoom and scale are added by the map) -->
+    <div class="gm-ctrls" id="gm-ctrls">
+      <button class="gm-ib gm-sq" id="btn-locate" title="Show your location" aria-label="Show your location">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3"/><circle cx="12" cy="12" r="7"/></svg></button>
+      <button class="gm-ib gm-sq" id="btn-fit" title="Show the whole area" aria-label="Show the whole area">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5L12 5l8 6.5"/><path d="M6.5 10v9h11v-9"/><path d="M10 19v-5h4v5"/></svg></button>
+      <button class="gm-ib gm-sq" id="btn-measure" title="Measure distance and area (M)" aria-label="Measure">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l14-14 4 4L7 21z"/><path d="M7 13l2 2M10 10l2 2M13 7l2 2"/></svg></button>
+      <button class="gm-ib gm-sq" id="btn-area" title="Select an area: department-wise summary (A)" aria-label="Select an area">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="1.5" stroke-dasharray="3 2.2"/><path d="M9 12h6M12 9v6"/></svg></button>
+      <button class="gm-ib gm-sq" id="btn-full" title="Full screen (F)" aria-label="Full screen">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg></button>
+    </div>
+    <details class="map-ctl legend" id="legend-box"><summary>Legend</summary><div id="legend"></div></details>
+    <div class="gm-measure hidden" id="measure-card"></div>
+    <div class="ctx hidden" id="ctx" role="menu"></div>
+    <div class="map-ctl offline hidden" id="offline">Offline. Showing the last synced results.</div>
+  </section>
+
+  <!-- menu drawer -->
+  <div class="drawer-bg hidden" id="drawer-bg"></div>
+  <nav class="drawer" id="drawer" aria-label="Menu" aria-hidden="true">
+    <div class="drawer-brand">
+      <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0f5e74"/><path d="M7 22l5.5-11 5 7 3-4 4.5 8z" fill="#fff"/></svg>
+      <div><div class="name">Land Connect</div><div class="tag">SIH 2026 · PS 013</div></div>
+    </div>
+    <div class="drawer-sec" id="drawer-areas"></div>
+    <div class="drawer-sec" id="drawer-tabs"></div>
+    <div class="drawer-sec">
+      <button class="drawer-item" id="btn-upload"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M5 20h14"/></svg>Upload data</button>
+      <button class="drawer-item" id="btn-run"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5l12 7-12 7z"/></svg>Run pipeline</button>
+      <a class="drawer-item" href="/docs" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>API</a>
+      <button class="drawer-item" id="drawer-help"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h1M11 10h1M15 10h1M7 14h10"/></svg>Keyboard shortcuts</button>
+    </div>
+  </nav>
+</main>
+
+<div class="overlay hidden" id="help-overlay">
+  <div class="sheet" role="dialog" aria-labelledby="help-title">
+    <h2 id="help-title">Keyboard shortcuts</h2>
+    <table class="t keys">
+      <tr><td><span class="kbd">/</span> or <span class="kbd">Ctrl</span><span class="kbd">K</span></td><td>Search</td></tr>
+      <tr><td><span class="kbd">Esc</span></td><td>Close the open card, menu or search</td></tr>
+      <tr><td><span class="kbd">[</span></td><td>Show or hide the side panel</td></tr>
+      <tr><td><span class="kbd">L</span></td><td>Layers and map type</td></tr>
+      <tr><td><span class="kbd">M</span></td><td>Measure distance and area</td></tr>
+      <tr><td><span class="kbd">A</span></td><td>Select an area: plots, buildings and records department by department</td></tr>
+      <tr><td><span class="kbd">F</span></td><td>Full screen</td></tr>
+      <tr><td><span class="kbd">+</span> <span class="kbd">−</span></td><td>Zoom in / out</td></tr>
+      <tr><td>Right-click the map</td><td>What's here, copy coordinates, measure, add a plot</td></tr>
+      <tr><td><span class="kbd">?</span></td><td>This list</td></tr>
+    </table>
+    <div class="sheet-foot"><span></span><button class="btn primary" id="help-close">Close</button></div>
+  </div>
+</div>
+
+<div class="overlay hidden" id="login-overlay">
+  <form class="sheet login" id="login-form" autocomplete="on">
+    <svg viewBox="0 0 32 32" width="36" height="36" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0f5e74"/><path d="M7 22l5.5-11 5 7 3-4 4.5 8z" fill="#fff"/></svg>
+    <h2>Sign in to Land Connect</h2>
+    <p class="lead">Land records contain personal data. Access is limited to authorised officers.</p>
+    <label class="field">Username<input id="login-user" name="username" autocomplete="username" required></label>
+    <label class="field">Password<input id="login-pass" name="password" type="password" autocomplete="current-password" required></label>
+    <p class="bad-text hidden" id="login-err" role="alert"></p>
+    <button class="btn primary" type="submit" style="width:100%;justify-content:center">Sign in</button>
+    <p class="faint" style="font-size:12px;margin-bottom:0">First start: the initial accounts are in <code>output/initial_credentials.txt</code> on the server.</p>
+  </form>
+</div>
+
+<div class="overlay hidden" id="cr-overlay">
+  <form class="sheet" id="cr-form" enctype="multipart/form-data">
+    <h2>Propose a change to <span id="cr-plot"></span></h2>
+    <p class="lead">Your department's approver checks it before the record changes. Every step is written to the audit trail.</p>
+    <label class="field">Field<select name="field" id="cr-field" required></select></label>
+    <div class="block" style="margin:6px 0"><span class="faint">Current value</span><div id="cr-current" class="mono" style="word-break:break-all"></div></div>
+    <label class="field" id="cr-record-wrap">Record<select name="record_id" id="cr-record"></select></label>
+    <label class="field">New value<span id="cr-value-wrap"></span></label>
+    <label class="field">Reason<input name="reason" required minlength="10" placeholder="e.g. Sale deed JNR-1-12345-2026 registered on 2026-03-02"></label>
+    <label class="field">Supporting document <span class="faint" id="cr-ev-need"></span><input type="file" name="evidence" accept=".pdf,.jpg,.jpeg,.png"></label>
+    <p class="bad-text hidden" id="cr-err" role="alert"></p>
+    <div class="sheet-foot"><button class="btn quiet" type="button" id="cr-cancel">Cancel</button><button class="btn primary" type="submit">Submit for approval</button></div>
+  </form>
+</div>
+
+<div class="overlay hidden" id="pw-overlay">
+  <form class="sheet login" id="pw-form" autocomplete="off">
+    <h2 id="pw-title">Change your password</h2>
+    <p class="lead" id="pw-lead"></p>
+    <label class="field">Current (or one-time) password<input name="current" type="password" autocomplete="current-password" required></label>
+    <label class="field">New password<input name="new" type="password" minlength="10" autocomplete="new-password" required></label>
+    <label class="field">Repeat new password<input name="confirm" type="password" minlength="10" autocomplete="new-password" required></label>
+    <p class="bad-text hidden" id="pw-err" role="alert"></p>
+    <div class="sheet-foot"><button class="btn quiet" type="button" id="pw-cancel">Cancel</button><button class="btn primary" type="submit">Save password</button></div>
+  </form>
+</div>
+
+<div class="overlay hidden" id="run-overlay">
+  <div class="sheet" role="dialog" aria-labelledby="run-title">
+    <h2 id="run-title">Running the integration pipeline</h2>
+    <div class="muted" id="run-ws"></div>
+    <ol class="steps" id="run-steps"></ol>
+    <div class="sheet-foot"><span id="run-msg" class="muted"></span><button class="btn primary hidden" id="run-close">View results</button></div>
+  </div>
+</div>
+
+<div class="overlay hidden" id="upload-overlay">
+  <div class="sheet" role="dialog" aria-labelledby="up-title">
+    <h2 id="up-title">Upload department datasets</h2>
+    <p class="lead">Shapefile (with .shx .dbf .prj), KML, GPX, GeoPackage, GeoJSON, GeoJSON-lines, CSV with or without lat/lon,
+      drone orthophotos with <code>raster_meta.json</code>, DSM/DTM arrays. Dataset type, coordinate system and column meanings are detected automatically.</p>
+    <input type="file" id="upload-input" multiple>
+    <div id="upload-result"></div>
+    <div class="sheet-foot"><button class="btn quiet" id="upload-cancel">Close</button><button class="btn primary" id="upload-go">Upload</button></div>
+  </div>
+</div>
+
+<script src="/static/vendor/leaflet.js"></script>
+<script src="/static/vendor/protomaps-leaflet.js"></script>
+<script src="/static/app.js"></script>
+</body>
+</html>

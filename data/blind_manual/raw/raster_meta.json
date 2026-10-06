@@ -1,0 +1,30 @@
+{
+  "epsg": 32643,
+  "ortho": {
+    "x0": 484380.0,
+    "y_top": 1423020.0,
+    "res": 0.25,
+    "width": 1720,
+    "height": 1040
+  },
+  "dsm": {
+    "x0": 484380.0,
+    "y_top": 1423020.0,
+    "res": 0.5,
+    "width": 860,
+    "height": 520
+  },
+  "epochs": {
+    "t1": {
+      "date": "2024-02-10",
+      "ortho": "drone_ortho_2024.png",
+      "dsm": "dsm_2024.npy"
+    },
+    "t2": {
+      "date": "2026-03-18",
+      "ortho": "drone_ortho_2026.png",
+      "dsm": "dsm_2026.npy"
+    }
+  },
+  "dtm": "dtm_2026.npy"
+}

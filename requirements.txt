@@ -1,0 +1,19 @@
+numpy>=2.0
+shapely>=2.1
+pyproj>=3.6
+geopandas>=1.0
+pyogrio>=0.10          # GDAL/OGR: Shapefile, KML, GPX, GeoPackage ...
+pandas>=2.2
+opencv-python-headless>=4.9
+scikit-learn>=1.4
+scipy>=1.11
+rapidfuzz>=3.0
+indic-transliteration>=2.3
+reportlab>=4.2
+uharfbuzz>=0.40       # shapes Kannada / Hindi / Tamil text in PDF reports
+fastapi>=0.110
+uvicorn[standard]>=0.29
+python-multipart>=0.0.9
+# tests: pytest httpx
+# optional: natural-language queries through Claude (offline parser is used otherwise)
+# anthropic>=1.0

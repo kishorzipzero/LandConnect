@@ -1,0 +1,10 @@
+{
+  "name": "Land Connect",
+  "short_name": "Land Connect",
+  "description": "Harmonised, confidence-scored land records from every department.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#eef1f4",
+  "theme_color": "#0f5e74",
+  "icons": [{"src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f5e74'/%3E%3Cpath d='M7 22l5.5-11 5 7 3-4 4.5 8z' fill='%23fff'/%3E%3C/svg%3E", "sizes": "any", "type": "image/svg+xml"}]
+}

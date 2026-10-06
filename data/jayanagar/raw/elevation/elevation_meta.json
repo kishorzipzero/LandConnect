@@ -1,0 +1,23 @@
+{
+  "epsg": 32643,
+  "grid": {
+    "x0": 779920.66,
+    "y_top": 1431055.69,
+    "res": 0.5,
+    "width": 1615,
+    "height": 1206
+  },
+  "dtm": "dtm.tif",
+  "simulated": true,
+  "epochs": {
+    "t1": {
+      "date": "2021-11-20",
+      "dsm": "dsm_2021.tif"
+    },
+    "t2": {
+      "date": "2026-02-14",
+      "dsm": "dsm_2026.tif"
+    }
+  },
+  "note": "SIMULATED for this prototype. Building-level DSMs come from drone or LiDAR surveys, which are not public; open DEMs (Bhuvan CartoDEM, SRTM) are 10-30 m and cannot resolve buildings. Footprints are the real ones; heights, trees, terrain and the earlier survey are generated."
+}

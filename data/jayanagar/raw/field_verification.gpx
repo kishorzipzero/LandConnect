@@ -1,0 +1,316 @@
+<?xml version="1.0"?>
+<gpx version="1.1" creator="GDAL 3.12.4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+<metadata>
+<bounds minlat="12.927103216082351" minlon="77.580783024614405" maxlat="12.931948835709758" maxlon="77.586921317445800"/>                                       
+</metadata>
+<wpt lat="12.928905196634496" lon="77.581172876633602">
+  <name>138/33</name>
+  <cmt>Kavitha Bhat</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.927518151497225" lon="77.585219212241327">
+  <name>160/14</name>
+  <cmt>Asha Gowda</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.929669582557693" lon="77.581718230968946">
+  <name>138/15</name>
+  <cmt>Srinivas Bhat</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.93140285672586" lon="77.5869213174458">
+  <name>113/10</name>
+  <cmt>Shanthala Shetty</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.93126242479201" lon="77.585353379078597">
+  <name>110/11</name>
+  <cmt>Prakash Rao</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.930048571184255" lon="77.58211997354563">
+  <name>134/5B</name>
+  <cmt>Lakshmi Gowda</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.931295185119479" lon="77.582004859988501">
+  <name>118/5</name>
+  <cmt>Asha Nayak</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.93099180396049" lon="77.58176583971543">
+  <name>117/11</name>
+  <cmt>Prakash Shetty</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.931948835709758" lon="77.582885649515489">
+  <name>103/3</name>
+  <cmt>Kavitha Kulkarni</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.929758977628083" lon="77.58304083381347">
+  <name>141/1</name>
+  <cmt>Pooja Hegde</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.92959305285655" lon="77.581298694757166">
+  <name>138/19</name>
+  <cmt>Mohan Kulkarni</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.928831388599711" lon="77.58538500350943">
+  <name>146/10</name>
+  <cmt>Shobha Nayak</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.930238547430342" lon="77.584558545571014">
+  <name>139/2A</name>
+  <cmt>Asha Nayak</cmt>
+  <desc>Commercial</desc>
+</wpt>
+<wpt lat="12.930429975945128" lon="77.582886119748295">
+  <name>130/6</name>
+  <cmt>Sunitha Gowda</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.929971270331418" lon="77.583694190998301">
+  <name>132/4</name>
+  <cmt>Shobha Kulkarni</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.927103216082351" lon="77.580816795052058">
+  <name>163/11</name>
+  <cmt>Manjunath Gowda</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.929571030089967" lon="77.583719400798046">
+  <name>144/2</name>
+  <cmt>Suresh Rao</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.92951022052997" lon="77.583443361517013">
+  <name>140/6</name>
+  <cmt>Pooja Rao</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.928406654998986" lon="77.583428607225031">
+  <name>155/4A</name>
+  <cmt>Manjunath Reddy</cmt>
+  <desc>Institutional</desc>
+</wpt>
+<wpt lat="12.931178238596615" lon="77.58426333103354">
+  <name>107/7B</name>
+  <cmt>Mohan Shetty</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.927335027753124" lon="77.585609774891878">
+  <name>156/28</name>
+  <cmt>Keshava Reddy</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.931261845915019" lon="77.584692283419713">
+  <name>108/12</name>
+  <cmt>Divya Kulkarni</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.927104978917532" lon="77.582691934152507">
+  <name>159/24</name>
+  <cmt>Keshava Reddy</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.929493849119917" lon="77.581341998069462">
+  <name>138/22</name>
+  <cmt>Sunitha Joshi</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.931396728264501" lon="77.582853410081">
+  <name>120/4</name>
+  <cmt>Priya Patil</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.928040674093163" lon="77.583048092543109">
+  <name>155/6B</name>
+  <cmt>Rekha Shetty</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.928800587004629" lon="77.586872650695781">
+  <name>143/15</name>
+  <cmt>Mahesh Murthy</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.931482135062723" lon="77.581211919987524">
+  <name>116/2A</name>
+  <cmt>Mohan Prasad</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.927131799120462" lon="77.581287866400075">
+  <name>162/9B</name>
+  <cmt>Manjunath Kumar</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.927103814039448" lon="77.581005944892951">
+  <name>163/13</name>
+  <cmt>Prakash Shetty</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.92805701313778" lon="77.583164865849014">
+  <name>155/7A</name>
+  <cmt>Chandrashekar Gowda</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.92940757394639" lon="77.585248772131507">
+  <name>142/1B</name>
+  <cmt>Lakshmi Gowda</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.927653719079107" lon="77.582482741285034">
+  <name>159/13</name>
+  <cmt>Deepa Swamy</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.927313242593605" lon="77.585959583607362">
+  <name>161/14</name>
+  <cmt>Vani Reddy</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.927194723642723" lon="77.582985501018669">
+  <name>155/12B</name>
+  <cmt>Manjunath Bhat</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.931292474814468" lon="77.581722869059675">
+  <name>117/4</name>
+  <cmt>Anitha Kumar</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.929979155053367" lon="77.582013475176154">
+  <name>134/6B</name>
+  <cmt>Suresh Gowda</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.931515268639668" lon="77.585088264544709">
+  <name>109/6A</name>
+  <cmt>Pooja Kumar</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.930005854914558" lon="77.585577413661312">
+  <name>133/11</name>
+  <cmt>Vani Hegde</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.929806724480512" lon="77.586879527297683">
+  <name>143/1</name>
+  <cmt>Girish Hegde</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.931338178475126" lon="77.582609765123763">
+  <name>119/5</name>
+  <cmt>Suresh Reddy</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.929892608193178" lon="77.582833543847912">
+  <name>130/11</name>
+  <cmt>Prakash Hegde</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.928603982515138" lon="77.583178610688293">
+  <name>155/1B</name>
+  <cmt>Deepa Bhat</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.931866164201798" lon="77.584875616833997">
+  <name>109/1A</name>
+  <cmt>Priya Shetty</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.931252876192694" lon="77.584538360438586">
+  <name>108/11</name>
+  <cmt>Nandini Joshi</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.931825918380182" lon="77.584951880251595">
+  <name>109/2B</name>
+  <cmt>Anil Kulkarni</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.928982264412554" lon="77.58301537043593">
+  <name>141/12</name>
+  <cmt>Rekha Patil</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.929981399844362" lon="77.585793449086154">
+  <name>133/13</name>
+  <cmt>Nagaraj Patil</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.931928738649431" lon="77.585531321161469">
+  <name>110/2</name>
+  <cmt>Nagaraj Swamy</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.927859445420919" lon="77.585672349226087">
+  <name>156/17</name>
+  <cmt>Lakshmi Gowda</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.931496536310878" lon="77.581563557294203">
+  <name>117/1</name>
+  <cmt>Suresh Hegde</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.929604755959492" lon="77.585923880510236">
+  <name>135/6A</name>
+  <cmt>Deepa Patil</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.929109446530724" lon="77.586221398180854">
+  <name>136/15A</name>
+  <cmt>Mahesh Prasad</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.930313059942108" lon="77.586238638441557">
+  <name>136/3B</name>
+  <cmt>Venkatesh Swamy</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.927905461688471" lon="77.580783024614405">
+  <name>150/5B</name>
+  <cmt>Anitha Shetty</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.93139570039139" lon="77.58295721294067">
+  <name>120/5</name>
+  <cmt>Chandrashekar Swamy</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.927651434942243" lon="77.582713501358754">
+  <name>159/14</name>
+  <cmt>Geetha Gowda</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.928895388441957" lon="77.584212836955075">
+  <name>139/8A</name>
+  <cmt>Asha Prasad</cmt>
+  <desc>Commercial</desc>
+</wpt>
+<wpt lat="12.929070228719135" lon="77.58282907281702">
+  <name>141/9</name>
+  <cmt>Ramesh Prasad</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.927654041081196" lon="77.582954561702238">
+  <name>155/10A</name>
+  <cmt>Asha Kulkarni</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.930163771988106" lon="77.581800628479911">
+  <name>129/5A</name>
+  <cmt>Pooja Nayak</cmt>
+  <desc>Residential</desc>
+</wpt>
+<wpt lat="12.927418403287508" lon="77.585218306728194">
+  <name>160/16</name>
+  <cmt>Geetha Gowda</cmt>
+  <desc>Residential</desc>
+</wpt>
+</gpx>

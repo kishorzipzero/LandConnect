@@ -1,0 +1,5 @@
+{
+  "title": "Blind test batch (hidden seed)",
+  "kind": "synthetic",
+  "description": "A fresh synthetic ward generated with a random hidden seed and random layout and noise, scored with frozen rules. Errors are in new places the rules were never tuned on."
+}

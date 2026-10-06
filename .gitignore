@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+output/
+data/_training/
+data/*/_cache/
+data/_statewide/
+*.db
+*.db-wal
+*.db-shm
+.pytest_cache/
+.claude/
+skills-lock.json
+initial_credentials.txt

@@ -1,0 +1,87 @@
+{
+  "title": "Thiruvanmiyur, Chennai — real TN cadastrals",
+  "kind": "real-world",
+  "bbox": [
+    12.992,
+    80.262,
+    13.002,
+    80.272
+  ],
+  "state_code": "TN",
+  "description": "Real TNGIS and NCSCM cadastral parcels (two independent government surveys of the same land), real OpenStreetMap and Microsoft AI buildings and roads. Chitta/Patta, corporation tax, utility and other records are simulated on the real parcels because they are not open data.",
+  "real_notes": "The two cadastral layers are compared with each other: their agreement is a real measurement with no simulated answer key. The TNGIS map sits about 6.0 m from the imagery-traced buildings; the simulated DGPS survey is placed on the ground, so the pipeline has to find and correct that offset.",
+  "simulated_notes": [
+    "Chitta / Patta (Tamil pattadar names), Greater Chennai Corporation tax, TANGEDCO, CMWSSB, gas, CMDA permissions, TNREGINET deeds, DGPS and field visits: simulated on the real parcels.",
+    "Elevation (DSM, DTM) and the 2021 survey: simulated on the real footprints.",
+    "Encroachment and cadastral-error scores are not reported here: the parcels are real, so there is no answer key for them."
+  ],
+  "sources": [
+    {
+      "name": "TNGIS Tamil Nadu cadastrals, via datameet",
+      "license": "CC0 1.0 (attribute datameet and TNGIS)",
+      "url": "https://github.com/ramSeraph/indian_cadastrals/releases/tag/tamil-nadu",
+      "files": [
+        "tngis_cadastral.geojson"
+      ]
+    },
+    {
+      "name": "NCSCM Tamil Nadu coastal cadastrals, via datameet",
+      "license": "CC0 1.0 (attribute datameet and NCSCM)",
+      "url": "https://czmp.ncscm.res.in/",
+      "files": [
+        "ncscm_coastal_survey.geojson"
+      ]
+    },
+    {
+      "name": "OpenStreetMap contributors",
+      "license": "ODbL 1.0",
+      "url": "https://www.openstreetmap.org/copyright",
+      "files": [
+        "osm_buildings.geojson",
+        "osm_roads.geojson",
+        "osm_landmarks.geojson"
+      ]
+    },
+    {
+      "name": "Microsoft Global ML Building Footprints",
+      "license": "ODbL 1.0",
+      "url": "https://github.com/microsoft/GlobalMLBuildingFootprints",
+      "files": [
+        "ms_ai_building_footprints.geojsonl"
+      ]
+    },
+    {
+      "name": "Simulated records (this project)",
+      "license": "synthetic",
+      "files": [
+        "chitta_patta_register.csv",
+        "gcc_property_tax.kml",
+        "dgps_control.csv",
+        "field_verification.gpx",
+        "tangedco_consumers.csv",
+        "cmwssb_water_connections.csv",
+        "torrent_gas_connections.csv",
+        "cmda_building_permissions.csv",
+        "tnreginet_registered_deeds.csv",
+        "sewer_network.geojson"
+      ]
+    },
+    {
+      "name": "Simulated elevation models and 2021 survey (this project)",
+      "license": "synthetic",
+      "files": [
+        "elevation/dtm.tif",
+        "elevation/dsm_2021.tif",
+        "elevation/dsm_2026.tif"
+      ]
+    }
+  ],
+  "counts": {
+    "tngis_parcels": 989,
+    "ncscm_parcels": 1118,
+    "osm_buildings": 1137,
+    "ms_buildings": 1632,
+    "roads": 211,
+    "plots": 935
+  }
+}

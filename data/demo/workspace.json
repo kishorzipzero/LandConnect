@@ -1,0 +1,7 @@
+{
+  "title": "Ward 47, Mangaluru — synthetic benchmark",
+  "kind": "synthetic",
+  "seed": 47,
+  "description": "Fully synthetic ward with a known true layout. Every department file has planted errors, so accuracy can be measured exactly.",
+  "sources": []
+}

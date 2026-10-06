@@ -1,0 +1,75 @@
+{
+  "title": "Jayanagar, Bengaluru — real-world",
+  "kind": "real-world",
+  "bbox": [
+    12.927,
+    77.58,
+    12.932,
+    77.587
+  ],
+  "description": "Real OpenStreetMap and Microsoft AI building footprints, real road network and landmarks. Land records (cadastral sheet, RTC, BBMP tax, DGPS, field visits) are simulated on the real geography because Indian cadastral data is not openly downloadable.",
+  "sources": [
+    {
+      "name": "OpenStreetMap contributors",
+      "license": "ODbL 1.0",
+      "url": "https://www.openstreetmap.org/copyright",
+      "files": [
+        "osm_buildings.geojson",
+        "osm_roads.geojson",
+        "osm_landmarks.geojson"
+      ]
+    },
+    {
+      "name": "Microsoft Global ML Building Footprints",
+      "license": "ODbL 1.0",
+      "url": "https://github.com/microsoft/GlobalMLBuildingFootprints",
+      "files": [
+        "ms_ai_building_footprints.geojsonl"
+      ]
+    },
+    {
+      "name": "Simulated land records (this project)",
+      "license": "synthetic",
+      "files": [
+        "cadastral_sheet.shp",
+        "rtc_bhoomi_extract.csv",
+        "bbmp_property_tax.kml",
+        "gnss_dgps_control.csv",
+        "field_verification.gpx"
+      ]
+    },
+    {
+      "name": "Simulated department records (this project)",
+      "license": "synthetic",
+      "files": [
+        "bescom_consumers.csv",
+        "bwssb_water_connections.csv",
+        "png_gas_connections.csv",
+        "building_permissions.csv",
+        "igr_registered_deeds.csv",
+        "sewer_network.geojson"
+      ]
+    },
+    {
+      "name": "Simulated elevation models and 2021 survey (this project)",
+      "license": "synthetic",
+      "files": [
+        "elevation/dtm.tif",
+        "elevation/dsm_2021.tif",
+        "elevation/dsm_2026.tif"
+      ]
+    }
+  ],
+  "real_notes": "The satellite basemap is Esri World Imagery (real, shown for reference only, not processed).",
+  "simulated_notes": [
+    "Owners, deeds, tax, revenue, utility and permission records: simulated on the real plots, because Indian land and utility records are not openly downloadable.",
+    "Plot boundaries: drawn around the real buildings and real roads, then given survey-style errors.",
+    "Elevation (DSM, DTM) and the 2021 survey: simulated on the real footprints. Open DEMs are 10-30 m and cannot measure a building's height."
+  ],
+  "counts": {
+    "osm_buildings": 722,
+    "ms_buildings": 551,
+    "roads": 121,
+    "plots": 770
+  }
+}
